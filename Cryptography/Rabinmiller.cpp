@@ -12,22 +12,20 @@ ll rand(ll l, ll r){
 
 ll power(ll a , ll b , ll mod)
 {
+	a %= mod;
 	ll ans = 1;
 	if(b==0) return 1;
 	if(b%2 == 0)
 	{
-		ans *= power(a , b/2 , mod);	
-		ans %= mod;
+		ans *= power(a , b/2 , mod);
 		ans *= ans;
-		ans %= mod;
 	}
 	else
 	{
 		ans *= a;
-		ans %= mod;
 		ans *= power(a , b-1 , mod);
-		ans %= mod;
 	}
+	ans %= mod;	
 	return ans;
 }
 
